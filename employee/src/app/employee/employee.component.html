@@ -1,0 +1,124 @@
+<!-- Employee Module -->
+<div>
+    <h2 class="wireframe-title">👥 Employee Module</h2>
+
+    <div class="mockup">
+        <div class="mockup-title">Employee CRUD Interface</div>
+        <div class="content-layout">
+            <div class="form-section">
+                <h3>👤 Add/Edit Employee</h3>
+                <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label class="form-label">First Name *</label>
+                        <input type="text" class="form-input" formControlName="firstName"
+                            placeholder="Enter first name">
+                        <div *ngIf="employeeForm.get('firstName')?.touched && employeeForm.get('firstName')?.invalid"
+                            class="error">
+                            First name is required
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Last Name *</label>
+                        <input type="text" class="form-input" formControlName="lastName" placeholder="Enter last name">
+                        <div *ngIf="employeeForm.get('lastName')?.touched && employeeForm.get('lastName')?.invalid"
+                            class="error">
+                            Last name is required
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email *</label>
+                        <input type="email" class="form-input" formControlName="email"
+                            placeholder="employee@company.com">
+                        <div *ngIf="employeeForm.get('email')?.touched && employeeForm.get('email')?.invalid"
+                            class="error">
+                            Valid email is required
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Title</label>
+                        <input type="text" class="form-input" formControlName="title"
+                            placeholder="Job title (optional)">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Company *</label>
+                        <select class="form-input" formControlName="company">
+                            <option value="">Select Company</option>
+                            <option *ngFor="let c of companies" [value]="c.name">{{ c.name }}</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn btn-primary">💾 Save Employee</button>
+                        <button type="button" (click)="onCancel()" class="btn btn-secondary">❌ Cancel</button>
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="list-section">
+                <h3>📋 Employee List</h3>
+                <div style="margin-bottom: 10px;">
+                    <input type="text" placeholder="Search employees..." class="form-input"
+                        style="display: inline-block; width: auto; margin-right: 10px;" (keyup)="searchEmployee($event)">
+                    <select class="form-input" style="display: inline-block; width: auto; margin-right: 10px;" onchange="filterByCompany($event)">
+                        <option>All Companies</option>
+                        <option>Tech Solutions Ltd</option>
+                        <option>Healthcare Plus</option>
+                    </select>
+                    <button class="btn btn-primary btn-sm">🔍 Filter</button>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Company</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let emp of employeeList">
+                            <tr>
+                                <td>{{ emp.firstName }} {{ emp.lastName }}</td>
+                                <td>{{ emp.email }}</td>
+                                <td>{{ emp.company }}</td>
+                                <td>{{ emp.role }}</td>
+                                <td class="action-btns">
+                                    <button class="btn btn-edit btn-sm" (click)="editEmployee(emp._id)">✏️ Edit</button>
+                                    <button class="btn btn-delete btn-sm" (click)="deleteEmployee(emp._id)">🗑️ Delete</button>
+                                </td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="mockup">
+        <div class="mockup-title">Employee Module Features</div>
+        <div class="tech-stack">
+            <div class="tech-card">
+                <h4>🔗 Cross-Module Integration</h4>
+                <p>Links to Company and Role modules</p>
+            </div>
+            <div class="tech-card">
+                <h4>📧 Email Validation</h4>
+                <p>Built-in email format validation</p>
+            </div>
+            <div class="tech-card">
+                <h4>👥 Bulk Operations</h4>
+                <p>Select multiple employees for batch actions</p>
+            </div>
+            <div class="tech-card">
+                <h4>📊 Employee Analytics</h4>
+                <p>Department-wise employee distribution</p>
+            </div>
+        </div>
+    </div>
+</div>

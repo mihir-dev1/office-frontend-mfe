@@ -1,0 +1,129 @@
+<!-- Role Module -->
+<div>
+    <h2 class="wireframe-title">🔐 Role Module</h2>
+
+    <div class="mockup">
+        <div class="mockup-title">Role CRUD Interface</div>
+        <div class="content-layout">
+            <div class="form-section">
+                <form>
+                    <div class="form-group">
+                        <label class="form-label">Role Name *</label>
+                        <input type="text" class="form-input" placeholder="Enter role name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-input" rows="3" placeholder="Role description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Permission Level</label>
+                        <select class="form-input">
+                            <option>Select Level</option>
+                            <option>Read Only</option>
+                            <option>Read/Write</option>
+                            <option>Admin</option>
+                            <option>Super Admin</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">💾 Save Role</button>
+                        <button type="button" class="btn btn-secondary">❌ Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="list-section">
+                <h3>📋 Role List</h3>
+                <div style="margin-bottom: 10px;">
+                    <input type="text" placeholder="Search roles..." class="form-input"
+                        style="display: inline-block; width: auto; margin-right: 10px;">
+                    <select class="form-input" style="display: inline-block; width: auto; margin-right: 10px;">
+                        <option>All Levels</option>
+                        <option>Admin</option>
+                        <option>Read/Write</option>
+                        <option>Read Only</option>
+                    </select>
+                    <button class="btn btn-primary btn-sm">🔍 Filter</button>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Role Name</th>
+                            <th>Description</th>
+                            <th>Permission Level</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Super Admin</td>
+                            <td>Full system access</td>
+                            <td><span
+                                    style="background: #dc2626; color: white; padding: 2px 8px; border-radius: 12px; font-size: 12px;">Super
+                                    Admin</span></td>
+                            <td class="action-btns">
+                                <button class="btn btn-edit btn-sm">✏️ Edit</button>
+                                <button class="btn btn-delete btn-sm">🗑️ Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Manager</td>
+                            <td>Department management</td>
+                            <td><span
+                                    style="background: #f59e0b; color: white; padding: 2px 8px; border-radius: 12px; font-size: 12px;">Admin</span>
+                            </td>
+                            <td class="action-btns">
+                                <button class="btn btn-edit btn-sm">✏️ Edit</button>
+                                <button class="btn btn-delete btn-sm">🗑️ Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Employee</td>
+                            <td>Basic user access</td>
+                            <td><span
+                                    style="background: #10b981; color: white; padding: 2px 8px; border-radius: 12px; font-size: 12px;">Read/Write</span>
+                            </td>
+                            <td class="action-btns">
+                                <button class="btn btn-edit btn-sm">✏️ Edit</button>
+                                <button class="btn btn-delete btn-sm">🗑️ Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Viewer</td>
+                            <td>Read-only access</td>
+                            <td><span
+                                    style="background: #6b7280; color: white; padding: 2px 8px; border-radius: 12px; font-size: 12px;">Read
+                                    Only</span></td>
+                            <td class="action-btns">
+                                <button class="btn btn-edit btn-sm">✏️ Edit</button>
+                                <button class="btn btn-delete btn-sm">🗑️ Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="mockup">
+        <div class="mockup-title">Role Module Features</div>
+        <div class="tech-stack">
+            <div class="tech-card">
+                <h4>🔒 Permission Matrix</h4>
+                <p>Granular permission control system</p>
+            </div>
+            <div class="tech-card">
+                <h4>👥 Role Assignment</h4>
+                <p>Bulk assign roles to employees</p>
+            </div>
+            <div class="tech-card">
+                <h4>🏢 Company-Specific Roles</h4>
+                <p>Roles can be scoped to specific companies</p>
+            </div>
+            <div class="tech-card">
+                <h4>📊 Role Analytics</h4>
+                <p>Track role usage and assignments</p>
+            </div>
+        </div>
+    </div>
+</div>

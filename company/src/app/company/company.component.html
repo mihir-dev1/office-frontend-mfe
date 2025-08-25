@@ -1,0 +1,87 @@
+<div>
+    <h2 class="wireframe-title">🏢 Company Module</h2>
+
+    <div class="mockup">
+        <div class="mockup-title">Company Information</div>
+        <div class="content-layout">
+            <div class="form-section">
+                <form [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                      <label class="form-label">Company Name *</label>
+                      <input type="text" class="form-input" formControlName="name" placeholder="Enter company name" />
+                      <div class="error" *ngIf="companyForm.get('name')?.touched && companyForm.get('name')?.invalid">
+                        Company name is required (min 3 characters).
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label">Industry *</label>
+                      <select class="form-input" formControlName="industry">
+                        <option value="">Select Industry</option>
+                        <option>Technology</option>
+                        <option>Healthcare</option>
+                        <option>Finance</option>
+                        <option>Manufacturing</option>
+                      </select>
+                      <div class="error" *ngIf="companyForm.get('industry')?.touched && companyForm.get('industry')?.invalid">
+                        Industry is required.
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label">Location</label>
+                      <input type="text" class="form-input" formControlName="address" placeholder="City, Country" />
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label">Website</label>
+                      <input type="text" class="form-input" formControlName="website" placeholder="https://example.com" />
+                      <div class="error" *ngIf="companyForm.get('website')?.touched && companyForm.get('website')?.invalid">
+                        Enter a valid website URL (must start with http/https).
+                      </div>
+                    </div>
+
+                    <div>
+                      <button type="submit" class="btn btn-primary" [disabled]="companyForm.invalid">💾 {{isEdit ? 'Update Company' : 'Save Company'}}</button>
+                      <button type="button" class="btn btn-secondary" (click)="onCancel()">❌ Cancel</button>
+                    </div>
+                  </form>
+
+            </div>
+
+            <div class="list-section">
+                <h3>📋 Company List</h3>
+                <div style="margin-bottom: 10px;">
+                    <input type="text" placeholder="Search companies..." class="form-input"
+                        style="display: inline-block; width: auto; margin-right: 10px;" (keyup)="searchCompany($event)">
+                    <!-- <button class="btn btn-primary btn-sm">🔍 Search</button> -->
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Industry</th>
+                            <th>Website</th>
+                            <th>Location</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let item of companyList">
+                            <tr>
+                                <td>{{item.name}}</td>
+                                <td>{{item.industry}}</td>
+                                <td>{{item.website}}</td>
+                                <td>{{item.address}}</td>
+                                <td class="action-btns">
+                                    <button class="btn btn-edit btn-sm" (click)="editCompanyDetails(item._id)">✏️ Edit</button>
+                                    <button class="btn btn-delete btn-sm" (click)="deleteCompany(item._id)">🗑️ Delete</button>
+                                </td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
